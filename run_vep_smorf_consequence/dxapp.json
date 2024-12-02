@@ -1,0 +1,66 @@
+{
+  "name": "run_vep_smorf_consequence",
+  "title": "run_vep_smorf_consequence",
+  "summary": "run_vep_smorf_consequence",
+  "dxapi": "1.0.0",
+  "inputSpec": [
+    {
+      "name": "docker_image",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"],
+      "optional": false
+    },
+    {
+      "name": "fasta",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"],
+      "optional": false
+    },
+    {
+      "name": "smorf_gtf",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"],
+      "optional": false
+    },
+    {
+      "name": "input_vcf",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"],
+      "optional": false
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "filtered_vep",
+      "help": "",
+      "class": "file",
+      "patterns": ["*"]
+    }
+  ],
+  "runSpec": {
+    "interpreter": "bash",
+    "timeoutPolicy": {
+      "*": {
+        "hours": 48
+      }
+    },
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "file": "src/code.sh"
+  },
+  "ignoreReuse": false,
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem1_ssd1_v2_x16"
+        }
+      }
+    }
+  }
+}

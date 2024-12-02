@@ -47,3 +47,14 @@ po/*~
 
 # RStudio Connect folder
 rsconnect/
+
+*/.DS_Store
+.DS_Store
+data/Homo_sapiens.GRCh38.108.chr.gtf.gz
+data/smorfs_public_highconf.gtf.gz
+data/smorfs_public_highconf.gtf.gz.tbi
+smorf_var_consequence_annotation.Rproj
+vep_results_filt/resources/home/dnanexus/CDS_exons.csv
+vep_results_filt/resources/home/dnanexus/smorf_exon_bounds.csv
+vep_results_filt/resources/home/dnanexus/smorfs_public_highconf.bed
+vep_results_filt/resources/home/dnanexus/transcript_CDS_108.csv

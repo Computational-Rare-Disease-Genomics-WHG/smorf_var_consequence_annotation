@@ -1,0 +1,78 @@
+{
+  "name": "vep_results_filt",
+  "title": "vep_results_filt",
+  "summary": "filters VEP results to exclude those impacting the CDS, and assign low/moderate/high impact to smORF",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "inputSpec": [
+    {
+      "name": "chunk_index",
+      "label": "chunk index from 1 to 157",
+      "class": "string",
+      "optional": false,
+      "help": ""
+    },
+    {
+      "name": "vep_results",
+      "label": "VEP results file",
+      "class": "file",
+      "optional": false,
+      "patterns": [
+        "*.tsv.gz"
+      ],
+      "help": ""
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "filtering_summary",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    },
+    {
+      "name": "filtered_variants",
+      "class": "file",
+      "patterns": [
+        "*"
+      ],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "execDepends": [
+      {"name": "r-base-core"},
+      {"name": "libxml2-dev"},
+      {"name": "libxml2"},
+      {"name": "libcurl4-openssl-dev"},
+      {"name": "libssl-dev"}
+    ],
+    "timeoutPolicy": {
+      "*": {
+        "hours": 48
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/vep_results_filt.sh",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0"
+  },
+  "access": {
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE"
+  },
+  "regionalOptions": {
+    "aws:eu-west-2": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem3_ssd1_v2_x2"
+        }
+      }
+    }
+  }
+}
